@@ -1,6 +1,6 @@
-# import pandas as pd 
-# import pandas.io.data as web
-from datetime import datetime 
+# import pandas as pd
+# from pandas_datareader import data as web
+from datetime import datetime
 import calendar
 
 def get_tickers(filename):
@@ -24,7 +24,7 @@ def is_third_friday(date):
 		d = datetime.strptime(date, "%m/%d/%Y")
 
 	except:
-		return 
+		return
 	return d.weekday() == 4 and 14 < d.day < 22
 
 def third_fridays():
@@ -59,7 +59,7 @@ def option_name(ticker_file):
 				tickers.append(stock + " US " + date + " " + c + " Equity")
 			for p in puts():
 				tickers.append(stock + " US " + date + " " + p + " Equity")
-	print len(tickers)
+	print (len(tickers))
 
 if __name__ == '__main__':
 	option_name('../data/option_tickers.txt')
